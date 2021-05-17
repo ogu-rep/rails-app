@@ -1,24 +1,105 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ruby 2.6.5
 
-Things you may want to cover:
+### Homebrewのupdate
+```
+brew update
+```
 
-* Ruby version
+### rbevのupdate
 
-* System dependencies
+```
+brew upgrade rbenv
+```
 
-* Configuration
+### bundlerのupdate
 
-* Database creation
+```
+sudo gem install bundler
+```
 
-* Database initialization
+### インストールできるRubyのバージョンを確認
 
-* How to run the test suite
+```
+rbenv install -l
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Ruby2.6.5のインストール
 
-* Deployment instructions
+```
+rbenv install 2.6.5
+```
 
-* ...
+### rbenvにパスを通す
+
+```
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+```
+
+```
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+```
+
+```
+source ~/.bash_profile
+```
+
+
+- which gemとwhich rubyのコマンドを打ってそれぞれが下記のようになっていたらOK
+
+```
+/Users/自分のパソコンの名前/.rbenv/shims/ruby
+/Users/自分のパソコンの名前/.rbenv/shims/gem
+```
+
+### yarnのインストール
+
+```
+brew install yarn
+```
+
+### Railsの設定
+
+- アプリを置きたい場所に空のディレクトリを作成
+
+```
+mkdir rails-app
+```
+
+```
+cd test_app
+```
+
+```:rails-app
+bundle init
+```
+
+```
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"  ←この行のコメントを外す
+```
+
+### Gemインストール
+```
+bundle install --path vendor/bundle
+```
+
+### rails new 
+
+```
+bundle exec rails new .
+```
+
+### サーバー起動
+
+```
+bundle exec rails s
+```
+
+[参考](https://qiita.com/tana18/items/203122272fdb730e7383)
